@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogHouseService.API", "DogHouseService.API\DogHouseService.API.csproj", "{F8EE0388-4837-491F-AFF0-255B93BF8106}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogHouseService.Domain", "DogHouseService.Domain\DogHouseService.Domain.csproj", "{DAC09BED-D241-41E8-9F0F-E778A1F97F7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogHouseService.Application", "DogHouseService.Application\DogHouseService.Application.csproj", "{7D4D5729-B74F-4A0D-BA20-4BE5FFB3EB92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogHouseService.Infrastructure", "DogHouseService.Infrastructure\DogHouseService.Infrastructure.csproj", "{CD9EEE69-2596-4931-AB76-23FEE6C7C461}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8EE0388-4837-491F-AFF0-255B93BF8106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8EE0388-4837-491F-AFF0-255B93BF8106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8EE0388-4837-491F-AFF0-255B93BF8106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8EE0388-4837-491F-AFF0-255B93BF8106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAC09BED-D241-41E8-9F0F-E778A1F97F7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAC09BED-D241-41E8-9F0F-E778A1F97F7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAC09BED-D241-41E8-9F0F-E778A1F97F7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAC09BED-D241-41E8-9F0F-E778A1F97F7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D4D5729-B74F-4A0D-BA20-4BE5FFB3EB92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D4D5729-B74F-4A0D-BA20-4BE5FFB3EB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D4D5729-B74F-4A0D-BA20-4BE5FFB3EB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D4D5729-B74F-4A0D-BA20-4BE5FFB3EB92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD9EEE69-2596-4931-AB76-23FEE6C7C461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD9EEE69-2596-4931-AB76-23FEE6C7C461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD9EEE69-2596-4931-AB76-23FEE6C7C461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD9EEE69-2596-4931-AB76-23FEE6C7C461}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB5E2767-E777-4F11-8650-7089D519112C}
+	EndGlobalSection
+EndGlobal

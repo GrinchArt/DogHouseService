@@ -1,0 +1,37 @@
+﻿# Відповідні файли для Visual Studio/JetBrains Rider/Visual Studio Code
+.vs/
+.vscode/
+.idea/
+
+# Вивідні каталоги
+bin/
+obj/
+
+# Пакети NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# Локальні конфігурації користувача
+*.user
+*.rsuser
+*.suo
+
+# Конфігурації системи збірки
+*.vcxproj.user
+*.dbmdl
+*.jfm
+
+# Файли налаштувань операційної системи
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Лог-файли
+*.log
+
+# Файли налаштувань IDE
+*.sln.docstates
+
+# Секретні файли та файли налаштувань
+secrets.json
