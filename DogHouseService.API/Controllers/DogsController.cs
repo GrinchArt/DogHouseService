@@ -21,7 +21,7 @@ namespace DogHouseService.API.Controllers
         //GET: /dogs
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DogDto>>> GetDogs(
-            [FromQuery] string  attribute, 
+            [FromQuery] string?  attribute = null, 
             [FromQuery] string order = "asc", 
             [FromQuery] int pageNumber = 1, 
             [FromQuery] int pageSize = 10)

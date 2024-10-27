@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DogHouseService.Application.Commands;
 using DogHouseService.Application.DTOs;
 using DogHouseService.Domain.Entities;
 
@@ -8,10 +9,8 @@ namespace DogHouseService.Application.Mappings
     {
         public DogMappingProfile()
         {
-            CreateMap<Dog, DogDto>()
-                .ForMember(dest => dest.TailLength, opt => opt.MapFrom(src => src.TailLength.Value));
-            CreateMap<DogDto, Dog>()
-                .ForMember(dest => dest.TailLength, opt => opt.MapFrom(src => new TailLength(src.TailLength)));
+            CreateMap<Dog, DogDto>().ReverseMap();
+            CreateMap<CreateDogCommand, Dog>();
         }
     }
 }

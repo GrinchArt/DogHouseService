@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using DogHouseService.Application.DTOs;
+using DogHouseService.Domain.Entities;
 using DogHouseService.Domain.Interfaces;
 using MediatR;
+using System.Reflection;
 
 namespace DogHouseService.Application.Queries.GetDogs
 {
@@ -22,14 +24,21 @@ namespace DogHouseService.Application.Queries.GetDogs
 
             if (!string.IsNullOrEmpty(request.SortAttribute))
             {
-                dogs = request.SortOrder.ToLower() == "desc"
-                    ? dogs.OrderByDescending(d => d.GetType().GetProperty(request.SortAttribute).GetValue(d))
-                    : dogs.OrderBy(d => d.GetType().GetProperty(request.SortAttribute).GetValue(d));
+                var propertyInfo = typeof(Dog).GetProperty(request.SortAttribute,
+                                  BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
+
+                if (propertyInfo != null)
+                {
+                    dogs = request.SortOrder.ToLower() == "desc"
+                        ? dogs.OrderByDescending(d => propertyInfo.GetValue(d))
+                        : dogs.OrderBy(d => propertyInfo.GetValue(d));
+                }
             }
 
             dogs = dogs.Skip((request.PageNumber - 1) * request.PageSize).Take(request.PageSize);
 
             return _mapper.Map<IEnumerable<DogDto>>(dogs);
         }
+
     }
 }
