@@ -1,4 +1,3 @@
-using AspNetCoreRateLimit;
 using DogHouseService.Application.Mappings;
 using DogHouseService.Application.Queries.GetDogs;
 using DogHouseService.Application.Validators;
