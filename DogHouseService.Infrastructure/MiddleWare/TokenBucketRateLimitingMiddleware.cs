@@ -1,5 +1,6 @@
 ﻿using DogHouseService.Infrastructure.MiddleWare;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Concurrent;
@@ -16,13 +17,16 @@ namespace DogHouseService.Infrastructure.RateLimiting
         private readonly int _tokensPerInterval;
         private readonly TimeSpan _interval;
 
-        public TokenBucketRateLimitingMiddleware(RequestDelegate next, IOptions<TokenBucketRateLimitingOptions> options)
+        private readonly ILogger<TokenBucketRateLimitingMiddleware> _logger;
+
+        public TokenBucketRateLimitingMiddleware(RequestDelegate next, IOptions<TokenBucketRateLimitingOptions> options, ILogger<TokenBucketRateLimitingMiddleware> logger)
         {
             _next = next;
             var opts = options.Value;
             _bucketCapacity = opts.BucketCapacity;
             _tokensPerInterval = opts.TokensPerInterval;
             _interval = opts.Interval;
+            _logger = logger;
         }
 
         public async Task InvokeAsync(HttpContext context)
@@ -30,6 +34,7 @@ namespace DogHouseService.Infrastructure.RateLimiting
             var ipAddress = context.Connection.RemoteIpAddress?.ToString();
             if (ipAddress == null)
             {
+                _logger.LogWarning("Request received without a valid IP address.");
                 await _next(context);
                 return;
             }
@@ -38,11 +43,13 @@ namespace DogHouseService.Infrastructure.RateLimiting
 
             if (!bucket.TryConsume())
             {
+                _logger.LogWarning("Too many requests from IP: {IpAddress}. Limit exceeded.", ipAddress);
                 context.Response.StatusCode = StatusCodes.Status429TooManyRequests;
                 await context.Response.WriteAsync("Too many requests. Please try again later.");
                 return;
             }
 
+            _logger.LogInformation("Request from IP: {IpAddress} processed successfully.", ipAddress);
             await _next(context);
         }
     }
