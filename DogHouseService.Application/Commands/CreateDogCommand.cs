@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DogHouseService.Application.DTOs;
+using MediatR;
 
 namespace DogHouseService.Application.Commands
 {
-    internal class CreateDogCommand
+    public class CreateDogCommand : IRequest<DogDto>
     {
+        public string Name { get; set; }
+        public string Color { get; set; }
+        public int TailLength { get; set; }
+        public int Weight { get; set; }
     }
 }

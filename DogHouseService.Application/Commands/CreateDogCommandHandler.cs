@@ -3,11 +3,6 @@ using DogHouseService.Application.DTOs;
 using DogHouseService.Domain.Entities;
 using DogHouseService.Domain.Interfaces;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DogHouseService.Application.Commands
 {

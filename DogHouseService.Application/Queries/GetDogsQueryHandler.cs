@@ -29,7 +29,6 @@ namespace DogHouseService.Application.Queries.GetDogs
 
             dogs = dogs.Skip((request.PageNumber - 1) * request.PageSize).Take(request.PageSize);
 
-            // Використання AutoMapper для мапінгу на DTO
             return _mapper.Map<IEnumerable<DogDto>>(dogs);
         }
     }
