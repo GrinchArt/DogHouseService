@@ -3,11 +3,6 @@ using MediatR;
 
 namespace DogHouseService.Application.Queries
 {
-    public class GetDogsQuery : IRequest<IEnumerable<DogDto>>
-    {
-        public string SortAttribute { get; set; }
-        public string SortOrder { get; set; }
-        public int PageNumber { get; set; }
-        public int PageSize { get; set; }
-    }
+    public record GetDogsQuery(string? SortAttribute = null, string SortOrder = "asc", int PageNumber = 1, int PageSize = 10) : IRequest<IEnumerable<DogDto>>;
+
 }

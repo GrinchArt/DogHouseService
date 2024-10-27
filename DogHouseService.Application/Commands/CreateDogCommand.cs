@@ -3,11 +3,6 @@ using MediatR;
 
 namespace DogHouseService.Application.Commands
 {
-    public class CreateDogCommand : IRequest<DogDto>
-    {
-        public string Name { get; set; }
-        public string Color { get; set; }
-        public int TailLength { get; set; }
-        public int Weight { get; set; }
-    }
+    public record CreateDogCommand(string Name, string Color, int TailLength, int Weight) : IRequest<DogDto>;
+
 }

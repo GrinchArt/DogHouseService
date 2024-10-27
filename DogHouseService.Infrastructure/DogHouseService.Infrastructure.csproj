@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DogHouseService.Application\DogHouseService.Application.csproj" />
     <ProjectReference Include="..\DogHouseService.Domain\DogHouseService.Domain.csproj" />
   </ItemGroup>
 

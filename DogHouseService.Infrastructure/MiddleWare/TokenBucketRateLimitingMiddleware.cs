@@ -1,15 +1,13 @@
-﻿using DogHouseService.Infrastructure.MiddleWare;
+﻿using DogHouseService.Application.Interfaces;
+using DogHouseService.Infrastructure.MiddleWare;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System;
 using System.Collections.Concurrent;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace DogHouseService.Infrastructure.RateLimiting
 {
-    public class TokenBucketRateLimitingMiddleware
+    public class TokenBucketRateLimitingMiddleware : IRateLimitingMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly ConcurrentDictionary<string, TokenBucket> _buckets = new();

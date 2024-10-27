@@ -1,3 +1,4 @@
+using DogHouseService.Application.Interfaces;
 using DogHouseService.Application.Mappings;
 using DogHouseService.Application.Queries.GetDogs;
 using DogHouseService.Application.Validators;
@@ -21,13 +22,17 @@ builder.Services.AddEndpointsApiExplorer();
 
 //Added automapper
 builder.Services.AddAutoMapper(typeof(DogMappingProfile));
+
 //Fluent Validator
 builder.Services.AddValidatorsFromAssemblyContaining<CreateDogCommandValidator>();
 builder.Services.AddFluentValidationAutoValidation();
 
+
+builder.Services.AddScoped<IDogRepository, DogRepository>();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddScoped<IDogRepository, DogRepository>();
+
+
 
 // Add logging
 builder.Logging.ClearProviders();

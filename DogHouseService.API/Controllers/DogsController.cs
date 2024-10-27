@@ -2,7 +2,6 @@
 using DogHouseService.Application.DTOs;
 using DogHouseService.Application.Queries;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DogHouseService.API.Controllers
@@ -21,9 +20,9 @@ namespace DogHouseService.API.Controllers
         //GET: /dogs
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DogDto>>> GetDogs(
-            [FromQuery] string?  attribute = null, 
-            [FromQuery] string order = "asc", 
-            [FromQuery] int pageNumber = 1, 
+            [FromQuery] string? attribute = null,
+            [FromQuery] string order = "asc",
+            [FromQuery] int pageNumber = 1,
             [FromQuery] int pageSize = 10)
         {
             var query = new GetDogsQuery

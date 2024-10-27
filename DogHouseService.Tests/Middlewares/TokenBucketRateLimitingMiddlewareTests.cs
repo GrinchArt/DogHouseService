@@ -1,13 +1,10 @@
-﻿using System.Net;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging.Abstractions;
-using DogHouseService.Infrastructure.MiddleWare;
+﻿using DogHouseService.Infrastructure.MiddleWare;
 using DogHouseService.Infrastructure.RateLimiting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
-using Xunit;
-using Microsoft.Extensions.Logging;
+using System.Net;
 
 namespace DogHouseService.Tests.Middlewares
 {

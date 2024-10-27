@@ -2,11 +2,6 @@
 using DogHouseService.Application.Commands;
 using DogHouseService.Application.Mappings;
 using DogHouseService.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DogHouseService.Tests.Mappings
 {
@@ -24,13 +19,7 @@ namespace DogHouseService.Tests.Mappings
         public void Should_Map_CreateDogCommand_To_Dog()
         {
             // Arrange
-            var command = new CreateDogCommand
-            {
-                Name = "Rex",
-                Color = "Black",
-                TailLength = 15,
-                Weight = 25
-            };
+            var command = new CreateDogCommand("Buddy", "Brown", 20, 30);
 
             // Act
             var dog = _mapper.Map<Dog>(command);

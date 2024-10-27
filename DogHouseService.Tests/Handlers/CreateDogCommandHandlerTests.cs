@@ -35,13 +35,7 @@ namespace DogHouseService.Tests.Handlers
         public async Task Handle_ShouldCreateDog_WhenNameIsUnique()
         {
             // Arrange
-            var command = new CreateDogCommand
-            {
-                Name = "Buddy",
-                Color = "Brown",
-                TailLength = 20,
-                Weight = 30
-            };
+            var command = new CreateDogCommand("Buddy", "Brown", 20, 30);
 
             _dogRepositoryMock.Setup(repo => repo.ExistsByNameAsync(It.IsAny<string>())).ReturnsAsync(false);
             _dogRepositoryMock.Setup(repo => repo.AddAsync(It.IsAny<Dog>())).Returns(Task.CompletedTask);
@@ -59,13 +53,7 @@ namespace DogHouseService.Tests.Handlers
         public async Task Handle_ShouldThrowException_WhenNameAlreadyExists()
         {
             // Arrange
-            var command = new CreateDogCommand
-            {
-                Name = "Buddy",
-                Color = "Brown",
-                TailLength = 20,
-                Weight = 30
-            };
+            var command = new CreateDogCommand("Buddy", "Brown", 20, 30);
 
             _dogRepositoryMock.Setup(repo => repo.ExistsByNameAsync(It.IsAny<string>())).ReturnsAsync(true);
 
